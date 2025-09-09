@@ -1,16 +1,57 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/terramind-demo/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <title>Smart SoilSense</title>
-    <script type="module" crossorigin src="/terramind-demo/assets/index-APt4BFzz.js"></script>
-    <link rel="stylesheet" crossorigin href="/terramind-demo/assets/index-tn0RQdqM.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/terramind-demo/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Smart SoilSense</title>
+  <script type="module" crossorigin src="./assets/index-APt4BFzz.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-tn0RQdqM.css">
+
+</head>
+
+<body class="bg-green-50 min-h-screen flex items-center justify-center">
+  <!-- Modal -->
+  <div id="demoModal" class="fixed inset-0 flex items-center justify-center bg-black/40">
+    <div class="bg-white rounded-2xl shadow-lg p-6 max-w-md text-center">
+      <h2 class="text-xl font-bold text-green-700 mb-3">👋 Hello friend!</h2>
+      <p class="text-gray-700 mb-2">
+        This is a demo of <span class="font-semibold">Terra 🌾</span> with AI Integration.<br />
+        Your soil and weather insights will appear here step by step!
+      </p>
+
+      <div class="mt-4">
+        <p class="font-mono text-sm bg-gray-100 rounded-lg px-3 py-2 inline-block">
+          Tharvesh@2022
+        </p>
+      </div>
+
+      <button onclick="copyAndContinue()"
+        class="mt-5 w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg shadow transition">
+        Copy ID & Continue
+      </button>
+    </div>
+  </div>
+
+  <!-- Root App (hidden initially) -->
+  <div id="root" class="hidden w-full h-screen"></div>
+
+  <script>
+    function copyAndContinue() {
+      const demoId = "Tharvesh@2022";
+      navigator.clipboard.writeText(demoId).then(() => {
+        alert("✅ Demo ID copied: " + demoId);
+
+        // Hide modal
+        document.getElementById("demoModal").remove();
+
+        // Show the app
+        document.getElementById("root").classList.remove("hidden");
+      });
+    }
+  </script>
+</body>
+
 </html>
